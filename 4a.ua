@@ -13,7 +13,13 @@ DFind ← (
   ≡⊢
   /+
 )
-DFind Diag
+⊃⇌∘
+∩(⇡-3⊸⧻
+  ⊙¤
+  ⊞(□↘)
+  /+≡(DFind Diag °□⊢)
+)
++
 
 # Find XMAS in all the directions
 # Left to right, in all rows
