@@ -1,5 +1,7 @@
 {
-    "editor.fontFamily": "'Uiua386Color', 'Berkeley Mono', 'Iosevka pingiun', Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 28,
-    "files.trimTrailingWhitespace": false
+    "[uiua]": {
+        "files.trimTrailingWhitespace": false,
+        "editor.fontFamily": "'Uiua386Color', 'Berkeley Mono', 'Iosevka pingiun', Menlo, Monaco, 'Courier New', monospace",
+        "editor.fontSize": 28,
+    }
 }
