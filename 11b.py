@@ -1,27 +1,27 @@
 import math
-import functools
-import tqdm
+import time
+from collections import Counter
 
-# digits = [int(x) for x in open('11.input').read().strip().split()]
+digits: Counter[int] = Counter([int(x) for x in open('11.input').read().strip().split()])
 
-digits = [5, 62914, 65, 972, 0, 805922, 6521, 1639064]
+answers: dict[int, dict[int, int]] = {}
 
-@functools.cache
-def grow(digit):
+def grow(digit: int) -> list[int]:
     if digit == 0:
         return [1]
-    if digit == [1]:
+    if digit == 1:
         return [2024]
     size = math.floor(math.log10(digit)) + 1
     if size % 2 == 0:
         return [digit // (10 ** (size // 2)), digit % (10 ** (size // 2))]
-    return [digit * 1024]
+    return [digit * 2024]
 
-def blink(digits):
-    return [newdigit for digit in digits for newdigit in grow(digit)]
+start = time.time()
+for _ in range(75):
+    newdigits: Counter[int] = Counter()
+    for digit, cnt in digits.items():
+        newdigits.update({newdigit: newcnt * cnt for newdigit, newcnt in Counter(grow(digit)).items()})
+    digits = newdigits
 
-for _ in tqdm.trange(75):
-    print(len(digits))
-    digits = blink(digits)
-
-print(len(digits))
+print(digits.total())
+print(f"Found in {time.time() - start} seconds")
